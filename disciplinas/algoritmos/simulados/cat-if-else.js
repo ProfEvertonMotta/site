@@ -1,0 +1,45 @@
+window.registrarCategoria({
+  id: 'if-else', titulo: 'Se-Senão', icone: '⤳',
+  questoes: [
+    {
+      id:1, titulo:'Classificação de IMC',
+      enunciado:'O algoritmo lê o peso (em kg) e a altura (em metros) de uma pessoa e calcula o IMC dividindo o peso pela altura ao quadrado. Se o IMC for menor que 18,5, a pessoa está "Abaixo do peso". Se o IMC estiver entre 18,5 e 25,0 (menor que 25,0), ela está com peso "Normal". Se estiver entre 25,0 e 30,0 (menor que 30,0), está "Acima do peso". Se for maior que ou igual a 30,0, está com "Obesidade".',
+      base:['real peso, altura, imc','leia(peso)','leia(altura)','imc <- peso / (altura * altura)','se (imc < 18.5) então','   escreva("Abaixo do peso")','senão','   se (imc < 25.0) então','      escreva("Normal")','   senão','      se (imc < 30.0) então','         escreva("Acima do peso")','      senão','         escreva("Obesidade")','      fim_se','   fim_se','fim_se'],
+      n1:[{linha:4,antes:'se ',depois:' então',resposta:'(imc < 18.5)',dica:'Condição para Abaixo do peso: IMC menor que 18,5.'},{linha:7,antes:'   se ',depois:' então',resposta:'(imc < 25.0)',dica:'Condição para Normal: IMC menor que 25,0.'},{linha:10,antes:'      se ',depois:' então',resposta:'(imc < 30.0)',dica:'Condição para Acima do peso: IMC menor que 30,0.'}],
+      n2:[{linha:3,resposta:'imc <- peso / (altura * altura)',dica:'Fórmula do IMC: peso dividido pela altura ao quadrado.'},{linha:8,resposta:'      escreva("Normal")',dica:'Mensagem quando IMC está entre 18,5 e 25,0.'}],
+      n3:{linhas:[6,7,8,9,10,11,12,13,14,15,16],label:'bloco senão aninhado completo',resposta:['senão','   se (imc < 25.0) então','      escreva("Normal")','   senão','      se (imc < 30.0) então','         escreva("Acima do peso")','      senão','         escreva("Obesidade")','      fim_se','   fim_se','fim_se'],dica:'Escreva todo o bloco senão com os dois aninhamentos e as quatro categorias.'}
+    },
+    {
+      id:2, titulo:'Aprovação escolar',
+      enunciado:'O algoritmo lê a nota de um aluno (de 0 a 10) e sua frequência (de 0 a 100). Se a nota for maior que ou igual a 6,0 E a frequência for maior que ou igual a 75,0, o aluno está "Aprovado". Se a nota for maior que ou igual a 6,0 mas a frequência for menor que 75,0, o resultado é "Reprovado por falta". Se a nota for menor que 6,0, independentemente da frequência, o resultado é "Reprovado por nota".',
+      base:['real nota, freq','leia(nota)','leia(freq)','se (nota >= 6.0) então','   se (freq >= 75.0) então','      escreva("Aprovado")','   senão','      escreva("Reprovado por falta")','   fim_se','senão','   escreva("Reprovado por nota")','fim_se'],
+      n1:[{linha:3,antes:'se ',depois:' então',resposta:'(nota >= 6.0)',dica:'Nota mínima para aprovação: maior que ou igual a 6,0.'},{linha:4,antes:'   se ',depois:' então',resposta:'(freq >= 75.0)',dica:'Frequência mínima: maior que ou igual a 75,0.'},{linha:7,antes:'',depois:'',resposta:'      escreva("Reprovado por falta")',dica:'Mensagem quando nota é suficiente mas frequência é menor que 75,0.'}],
+      n2:[{linha:5,resposta:'      escreva("Aprovado")',dica:'Mensagem quando nota maior que ou igual a 6,0 E frequência maior que ou igual a 75,0.'},{linha:10,resposta:'   escreva("Reprovado por nota")',dica:'Mensagem quando nota é menor que 6,0.'}],
+      n3:{linhas:[4,5,6,7,8],label:'bloco se-senão de frequência',resposta:['   se (freq >= 75.0) então','      escreva("Aprovado")','   senão','      escreva("Reprovado por falta")','   fim_se'],dica:'Escreva o se-senão interno que verifica se a frequência é maior que ou igual a 75,0.'}
+    },
+    {
+      id:3, titulo:'Calculadora simples',
+      enunciado:'O algoritmo lê dois números reais (a e b) e um caractere de operação (op). Se op for "+", soma a e b. Se for "-", subtrai. Se for "*", multiplica. Se for "/", verifica antes se b é diferente de zero: se for, divide a por b; caso contrário, exibe a mensagem "Divisão por zero". Ao final, exibe o resultado (exceto no caso de divisão por zero).',
+      base:['real a, b, result','caractere op','leia(a, b, op)','se (op = "+") então','   result <- a + b','senão','   se (op = "-") então','      result <- a - b','   senão','      se (op = "*") então','         result <- a * b','      senão','         se (b <> 0) então','            result <- a / b','         senão','            escreva("Divisão por zero")','         fim_se','      fim_se','   fim_se','fim_se','escreva(result)'],
+      n1:[{linha:3,antes:'se ',depois:' então',resposta:'(op = "+")',dica:'Condição para adição: op igual a "+".'},{linha:6,antes:'   se ',depois:' então',resposta:'(op = "-")',dica:'Condição para subtração: op igual a "-".'},{linha:12,antes:'         se ',depois:' então',resposta:'(b <> 0)',dica:'Condição para evitar divisão por zero: b diferente de zero.'}],
+      n2:[{linha:4,resposta:'   result <- a + b',dica:'Cálculo da adição: a mais b.'},{linha:10,resposta:'         result <- a * b',dica:'Cálculo da multiplicação: a vezes b.'}],
+      n3:{linhas:[11,12,13,14,15,16,17],label:'bloco da divisão com verificação de zero',resposta:['      senão','         se (b <> 0) então','            result <- a / b','         senão','            escreva("Divisão por zero")','         fim_se','      fim_se'],dica:'Escreva o bloco senão da multiplicação com a verificação de divisão por zero.'}
+    },
+    {
+      id:4, titulo:'Categoria de velocidade',
+      enunciado:'O algoritmo lê a velocidade de um veículo em km/h. Se a velocidade for igual a zero, exibe "Parado". Se for maior que zero e menor que ou igual a 40, exibe "Lento". Se for maior que 40 e menor que ou igual a 80, exibe "Normal". Se for maior que 80 e menor que ou igual a 120, exibe "Rápido". Se for maior que 120, exibe "Acima do limite".',
+      base:['inteiro vel','leia(vel)','se (vel = 0) então','   escreva("Parado")','senão','   se (vel <= 40) então','      escreva("Lento")','   senão','      se (vel <= 80) então','         escreva("Normal")','      senão','         se (vel <= 120) então','            escreva("Rápido")','         senão','            escreva("Acima do limite")','         fim_se','      fim_se','   fim_se','fim_se'],
+      n1:[{linha:2,antes:'se ',depois:' então',resposta:'(vel = 0)',dica:'Condição para veículo parado: velocidade igual a zero.'},{linha:5,antes:'   se ',depois:' então',resposta:'(vel <= 40)',dica:'Condição para Lento: velocidade menor que ou igual a 40.'},{linha:11,antes:'         se ',depois:' então',resposta:'(vel <= 120)',dica:'Condição para Rápido: velocidade menor que ou igual a 120.'}],
+      n2:[{linha:6,resposta:'      escreva("Lento")',dica:'Mensagem para velocidade entre 1 e 40 km/h.'},{linha:9,resposta:'         escreva("Normal")',dica:'Mensagem para velocidade entre 41 e 80 km/h.'}],
+      n3:{linhas:[10,11,12,13,14,15,16],label:'bloco das categorias Rápido e Acima do limite',resposta:['      senão','         se (vel <= 120) então','            escreva("Rápido")','         senão','            escreva("Acima do limite")','         fim_se','      fim_se'],dica:'Escreva o bloco senão de Normal com a verificação de Rápido (até 120) e Acima do limite (mais de 120).'}
+    },
+    {
+      id:5, titulo:'Triângulo válido',
+      enunciado:'O algoritmo lê os três lados de um triângulo (a, b e c). Primeiro verifica se formam um triângulo válido: cada lado deve ser menor que a soma dos outros dois (a menor que b mais c, E b menor que a mais c, E c menor que a mais b). Se não formar triângulo, exibe "Não forma triângulo". Se formar, classifica: se os três lados forem iguais, é "Equilátero"; se dois lados forem iguais (a igual a b, OU b igual a c, OU a igual a c), é "Isósceles"; caso contrário, é "Escaleno".',
+      base:['real a, b, c','leia(a, b, c)','se (a < b+c) e (b < a+c) e (c < a+b) então','   se (a = b) e (b = c) então','      escreva("Equilátero")','   senão','      se (a = b) ou (b = c) ou (a = c) então','         escreva("Isósceles")','      senão','         escreva("Escaleno")','      fim_se','   fim_se','senão','   escreva("Não forma triângulo")','fim_se'],
+      n1:[{linha:2,antes:'se ',depois:' então',resposta:'(a < b+c) e (b < a+c) e (c < a+b)',dica:'Desigualdade triangular: cada lado menor que a soma dos outros dois.'},{linha:3,antes:'   se ',depois:' então',resposta:'(a = b) e (b = c)',dica:'Equilátero: os três lados são iguais (a igual a b E b igual a c).'},{linha:6,antes:'      se ',depois:' então',resposta:'(a = b) ou (b = c) ou (a = c)',dica:'Isósceles: pelo menos dois lados iguais.'}],
+      n2:[{linha:4,resposta:'      escreva("Equilátero")',dica:'Mensagem quando os três lados são iguais.'},{linha:9,resposta:'         escreva("Escaleno")',dica:'Mensagem quando todos os três lados são diferentes.'}],
+      n3:{linhas:[3,4,5,6,7,8,9,10,11],label:'bloco de classificação do triângulo',resposta:['   se (a = b) e (b = c) então','      escreva("Equilátero")','   senão','      se (a = b) ou (b = c) ou (a = c) então','         escreva("Isósceles")','      senão','         escreva("Escaleno")','      fim_se','   fim_se'],dica:'Escreva o bloco interno completo que classifica o tipo de triângulo.'}
+    }
+  ]
+});

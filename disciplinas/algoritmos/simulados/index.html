@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulados — Algoritmos — Prof. Everton</title>
+  <link rel="stylesheet" href="../../../assets/css/global.css">
+  <link rel="stylesheet" href="../../../assets/css/simulados.css">
+</head>
+<body>
+<div id="topbar"></div>
+
+<div class="page-container">
+  <div class="breadcrumb">
+    <a href="../../../index.html" data-i18n="nav_home">Início</a>
+    <span class="sep">›</span>
+    <a href="../index.html" data-i18n="disc_algoritmos">Algoritmos</a>
+    <span class="sep">›</span>
+    <span data-i18n="nav_simulados">Simulados</span>
+  </div>
+
+  <div class="page-title">
+    <span data-i18n="nav_simulados">Simulados</span>
+    — <span id="sim-cat-nome"></span>
+  </div>
+  <div class="page-subtitle" data-i18n="sim_desc">
+    Exercícios de lacunas em Portugol organizados por categoria e nível.
+  </div>
+
+  <div class="sim-layout">
+    <div class="sim-sidebar">
+      <h3 data-i18n="nav_disciplinas">Categorias</h3>
+      <div id="nav-categorias"></div>
+    </div>
+    <div class="sim-main">
+      <div id="questoes"></div>
+    </div>
+  </div>
+</div>
+
+<footer id="site-footer"></footer>
+
+<script src="../../../assets/js/i18n.js"></script>
+<script src="../../../assets/js/nav.js"></script>
+<script src="../../../assets/js/simulados-app.js"></script>
+
+<!-- Categorias — adicione um <script> por nova categoria -->
+<script src="cat-if-else.js"></script>
+<script src="cat-para.js"></script>
+<script src="cat-enquanto.js"></script>
+<script src="cat-vetor.js"></script>
+<script>render();</script>
+</body>
+</html>
